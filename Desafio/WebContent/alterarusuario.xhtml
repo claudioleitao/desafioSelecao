@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<title>Alterar Usuário</title>
+	</h:head>
+
+	<h:body>
+		<h:form id="formUsuario">
+			<h2><h:outputLabel binding="#{controleUsuario.outputErrorMessage}" style="visible:false" /></h2>
+			<h2><h:outputLabel binding="#{controleUsuario.outputSuccessMessage}" style="visible:false" /></h2>
+
+			<h3>Dados Pessoais</h3><br/>
+			Nome:
+			<h:inputText binding="#{controleUsuario.inputNome}" id="nome" value="#{controleUsuario.usuario.nome}" /> <br/>
+			Email:
+			<h:inputText binding="#{controleUsuario.inputEmail}" id="email" value="#{controleUsuario.usuario.email}" /> <br/>
+			Senha:
+			<h:inputSecret binding="#{controleUsuario.inputSenha}" id="senha" /> <br/>
+  			<h3>Contato principal</h3> <br/>
+			DDD:
+			<h:inputText binding="#{controleUsuario.inputDDD1}" id="ddd1"  value="#{controleUsuario.usuario.dddTelefone}" /> <br/>
+			Numero:
+			<h:inputText binding="#{controleUsuario.inputNumero1}" id="numero1" value="#{controleUsuario.usuario.numeroTelefone}" /> <br/>
+			Tipo:
+			<h:selectOneMenu binding="#{controleUsuario.selectTipo1}" id="tipo1" style="width:178px">
+				<f:selectItem itemLabel="Telefone" itemValue="telefone"/>
+				<f:selectItem itemLabel="Celular" itemValue="celular"/>
+			</h:selectOneMenu> <br/>
+			<h3>Contato Secundário</h3><br/>
+			DDD:
+			<h:inputText binding="#{controleUsuario.inputDDD2}" id="ddd2" value="#{controleUsuario.usuario.dddCelular}" /> <br/>
+			Numero:
+			<h:inputText binding="#{controleUsuario.inputNumero2}" id="numero2" value="#{controleUsuario.usuario.numeroCelular}" /> <br/>
+			Tipo:
+			<h:selectOneMenu binding="#{controleUsuario.selectTipo2}" id="tipo2" style="width:178px">
+				<f:selectItem itemLabel="Telefone" itemValue="telefone"/>
+				<f:selectItem itemLabel="Celular" itemValue="celular"/>
+			</h:selectOneMenu> <br/>
+			<h:commandButton value="Salvar" action="#{controleUsuario.alterarUsuario}"></h:commandButton>
+			<h:commandButton value="Voltar" action="#{controleUsuario.voltar}"></h:commandButton>
+		</h:form>
+	</h:body>
+
+</html>
