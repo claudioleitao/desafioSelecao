@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<title>Cadastro Usuário</title>
+	</h:head>
+
+	<h:body>
+		<h:form id="formUsuario">
+			<h2><h:outputLabel binding="#{controleUsuario.outputErrorMessage}" style="visible:false" /></h2>
+			<h2><h:outputLabel binding="#{controleUsuario.outputSuccessMessage}" style="visible:false" /></h2>
+			<h3>ListaUsuarios</h3><br/>
+
+			<h:dataTable id="formUsuario" value="#{controleUsuario.listaUsuario}" var="user">
+				<h:column>
+					<f:facet name="header">
+                    	<h:outputText value="ID"/>
+                	</f:facet>    
+                	<h:outputText value="#{user.id}"/>
+                	<f:param id="id" name="id" value="#{user.id}"></f:param>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="Nome"/>
+            		</f:facet>
+            		<h:outputText value="#{user.nome}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="E-mail"/>
+            		</f:facet>
+            		<h:outputText value="#{user.email}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="DDD"/>
+            		</f:facet>
+            		<h:outputText value="#{user.dddTelefone}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="Telefone"/>
+            		</f:facet>
+            		<h:outputText value="#{user.numeroTelefone}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="Tipo"/>
+            		</f:facet>
+            		<h:outputText value="#{user.tipo1}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="DDD"/>
+            		</f:facet>
+            		<h:outputText value="#{user.dddCelular}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="Celular"/>
+            		</f:facet>
+            		<h:outputText value="#{user.numeroCelular}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value="Tipo"/>
+            		</f:facet>
+            		<h:outputText value="#{user.tipo2}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value=""/>
+            		</f:facet>
+					<h:outputText binding="#{controleUsuario.outputgetId}" value="#{user.id}" style="display:none" />
+            		<h:commandLink value="Alterar" action="#{controleUsuario.telaAlterarUsuario}"/>
+            	</h:column>
+            	<h:column>
+            		<f:facet name="header">
+            			<h:outputText value=""/>
+            		</f:facet>
+					<h:outputText binding="#{controleUsuario.outputgetId}" value="#{user.id}" style="display:none" />
+            		<h:commandLink value="Excluir" action="#{controleUsuario.excluirUsuario}"/>
+            	</h:column>
+            </h:dataTable>
+			<h:commandButton value="Novo Usuário" action="#{controleUsuario.telaDeUsuario}"></h:commandButton>
+			<h:commandButton value="Sair" action="#{controleUsuario.sair}"></h:commandButton>
+		</h:form>
+	</h:body>
+
+</html>
